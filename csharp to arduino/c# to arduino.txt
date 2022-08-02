@@ -1,0 +1,44 @@
+
+void setup() {
+
+  pinMode(13, OUTPUT);
+
+  Serial.begin(9600);
+ 
+
+}
+
+
+
+void loop() {
+  int data ;
+  data = Serial.read(); // c#'tan gelen seri dataları okur.
+  switch (data) {
+
+    case '1' :
+    digitalWrite (13, HIGH);
+    break ;
+
+    case '2' :
+    while(Serial.available ()!= 1) {
+      // seri haberleşmenin olup olmadığını söylemezsek 
+      // döngüde kalır ve başka butonu algılamaz
+    digitalWrite (13,HIGH);
+    delay(100);
+    digitalWrite (13,LOW);
+    delay(100);
+    digitalWrite (13,HIGH);
+    delay(100);
+
+    
+    }
+   
+
+    case '3' :
+    digitalWrite(13, LOW);
+    break;
+  }
+}
+
+
+
